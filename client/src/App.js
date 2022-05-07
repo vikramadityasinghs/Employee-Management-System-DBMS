@@ -1,8 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
-import background from "./background.png"
-
+import ScrollIntoView from 'react-scroll-into-view'
 function App() {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
@@ -75,69 +74,114 @@ function App() {
   return (
     <div className="App">
       <div>
-       <div className="bg_image" style={{  backgroundImage: `url(${background})`,
-          backgroundSize: "repeat",
-          height: "100vh",
-          width: "100vw"}}>
-       <nav>
-  <div class="logo">
-    <img src="logo.svg" alt=""/>
-    <h1  style={{color:"blue",fontSize:"1.5rem",fontStyle:"oblique"}}>VIA</h1>
-  </div>
+        <nav>
+          <div className="logo">
+            <img src="logo.svg" alt="" />
+            <h1
+              style={{
+                color: "blue",
+                fontSize: "1.5rem",
+                fontStyle: "oblique",
+              }}
+            >
+              VIA
+            </h1>
+          </div>
 
-  <div class="links">
-    
-  </div>
+          <div className="links"></div>
+        </nav>
 
-</nav>
+        <section className="hero">
+          <div className="hero-content">
+            <h1 className="hero-title">Employee Management System</h1>
 
-<header>
+            <h2 className="hero-subtitle">
+              Utilize this tool to keep a track of all the employees in your
+              company.
+            </h2>
 
-  <h1 style={{color:"blue"}}>Employee Management System</h1>
-  <p>Utilize this tool to keep a track of all the employees in your company.</p>
-</header>
-       </div>
-      <div className="information">
-        <label>Name:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
-        />
-        <label>Age:</label>
-        <input
-          type="number"
-          onChange={(event) => {
-            setAge(event.target.value);
-          }}
-        />
-        <label>Country:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setCountry(event.target.value);
-          }}
-        />
-        <label>Position:</label>
-        <input
-          type="text"
-          onChange={(event) => {
-            setPosition(event.target.value);
-          }}
-        />
-        <label>Wage (year):</label>
-        <input
-          type="number"
-          onChange={(event) => {
-            setWage(event.target.value);
-          }}
-        />
-        <button onClick={addEmployee}>Add Employee</button>
+            <button type="button" className="hero-button p-3 m-5">
+              Let's Get Started
+            </button>
+          </div>
+        </section>
       </div>
-      <div className="employees">
-        <button onClick={getEmployees}>Show Employees</button>
+      <h1 className="text-2xl font-bold text-center mx-auto my-4">
+        Please fill in your details
+      </h1>
+      <div className="grid grid-cols-1 gap-2 w-2/5 mx-auto my-10">
+        <div className="flex flex-col">
+          <label>Name:</label>
+          <input
+            className="rounded-md border-2 border-blue-300 p-2 shadow-md my-2"
+            type="text"
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+          />
+        </div>
 
+        <div className="flex flex-col">
+          <label>Age:</label>
+          <input
+            className="rounded-md border-2 border-blue-300 p-2 shadow-md my-2"
+            type="number"
+            onChange={(event) => {
+              setAge(event.target.value);
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label>Country:</label>
+          <input
+            className="rounded-md border-2 border-blue-300 p-2 shadow-md my-2"
+            type="text"
+            onChange={(event) => {
+              setCountry(event.target.value);
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label>Position:</label>
+          <input
+            className="rounded-md border-2 border-blue-300 p-2 shadow-md my-2"
+            type="text"
+            onChange={(event) => {
+              setPosition(event.target.value);
+            }}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label>Salary per annum:</label>
+          <input
+            className="rounded-md border-2 border-blue-300 p-2 shadow-md my-2"
+            type="number"
+            onChange={(event) => {
+              setWage(event.target.value);
+            }}
+          />
+        </div>
+      </div>
+
+      <div className="w-full flex items-center justify-center">
+        <button
+          className="p-2 rounded-md mx-4 bg-gray-400 text-white text-lg"
+          onClick={getEmployees}
+        >
+          Show Employees
+        </button>
+        <button
+          className="p-2 rounded-md mx-4 bg-blue-600 text-white text-lg"
+          onClick={addEmployee}
+        >
+          Add Employee
+        </button>
+      </div>
+
+      <div className="employees">
         {employeeList.map((val, key) => {
           return (
             <div className="employee">
@@ -178,7 +222,6 @@ function App() {
         })}
       </div>
     </div>
-  </div>
   );
 }
 

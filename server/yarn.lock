@@ -876,6 +876,11 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-scroll-into-view@^1.12.0:
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/react-scroll-into-view/-/react-scroll-into-view-1.12.0.tgz#645635cfe5692138dc9a903f96532b1708c6398a"
+  integrity sha512-n2yLN1MyiKL65AmFoYLnd/XOKhrFLB3w5m8Q1sHHcJTmXbpxoqEbCm+JooZvrNfGCaWuYVAJmXhN+uxi4jwYVg==
+
 readable-stream@2.3.7:
   version "2.3.7"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.7.tgz#1eca1cf711aef814c04f62252a36a62f6cb23b57"
