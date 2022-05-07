@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
-import ScrollIntoView from 'react-scroll-into-view'
+
 function App() {
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
@@ -31,6 +31,7 @@ function App() {
           wage: wage,
         },
       ]);
+      alert("Employee added successfully!")
     });
   };
 
@@ -68,6 +69,7 @@ function App() {
           return val.id != id;
         })
       );
+      alert("Employee deleted successfully!")
     });
   };
 
@@ -99,14 +101,15 @@ function App() {
               Utilize this tool to keep a track of all the employees in your
               company.
             </h2>
-
-            <button type="button" className="hero-button p-3 m-5">
-              Let's Get Started
-            </button>
+            <div onClick={() => window.location.replace("/#about")}>
+              <button type="button" className="p-5 m-5 rounded-md text-xl bg-purple-400 font-bold">
+                Let's Get Started
+              </button>
+            </div>
           </div>
         </section>
       </div>
-      <h1 className="text-2xl font-bold text-center mx-auto my-4">
+      <h1 id="about" className="text-2xl font-bold text-center mx-auto mt-36">
         Please fill in your details
       </h1>
       <div className="grid grid-cols-1 gap-2 w-2/5 mx-auto my-10">
@@ -166,7 +169,7 @@ function App() {
         </div>
       </div>
 
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex items-center justify-center mb-10">
         <button
           className="p-2 rounded-md mx-4 bg-gray-400 text-white text-lg"
           onClick={getEmployees}
@@ -184,7 +187,7 @@ function App() {
       <div className="employees">
         {employeeList.map((val, key) => {
           return (
-            <div className="employee">
+            <div className="flex rounded-md border-2 border-black shadow-lg m-4 p-8 h-auto w-3/7">
               <div>
                 <h3>Name: {val.name}</h3>
                 <h3>Age: {val.age}</h3>
@@ -195,12 +198,14 @@ function App() {
               <div>
                 <input
                   type="text"
-                  placeholder="2000..."
+                  className="rounded-md border-2 border-blue-500 p-2 mx-4"
+                  placeholder="Enter New Salary"
                   onChange={(event) => {
                     setNewWage(event.target.value);
                   }}
                 />
                 <button
+                  className="mx-2 p-2 rounded-md text-white bg-yellow-500"
                   onClick={() => {
                     updateEmployeeWage(val.id);
                   }}
@@ -210,6 +215,7 @@ function App() {
                 </button>
 
                 <button
+                  className="mx-2 p-2 rounded-md text-white bg-red-600"
                   onClick={() => {
                     deleteEmployee(val.id);
                   }}

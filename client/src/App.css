@@ -13,6 +13,7 @@ body {
   position: relative;
   padding: 0;
   margin: 0;
+  scroll-behavior: smooth;
   font-family: "Inter", sans-serif;
   font-weight: 600;
   background-color: #ffffff;
@@ -151,8 +152,4 @@ nav .botoes > .btn2 {
   font-size: 2rem;
   font-weight: 200;
   margin-top: 1rem;
-}
-.hero-button{
-  background-color: rgb(195, 120, 214);
-  font-size: 2rem;
 }
